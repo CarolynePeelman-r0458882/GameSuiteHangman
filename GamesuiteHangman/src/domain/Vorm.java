@@ -1,5 +1,6 @@
 package domain;
 
 public abstract class Vorm {
-	public abstract boolean Equals(Object object);
+	@Override
+	public abstract boolean equals(Object object);
 }
