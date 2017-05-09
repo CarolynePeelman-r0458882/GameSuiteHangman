@@ -20,17 +20,17 @@ public class CirkelTest {
 	
 	@Test (expected = DomainException.class)
 	public void test_cirkel_met_middelpunt_null_geeft_exception(){
-		Cirkel cirkel = new Cirkel(null, radius1);
+		new Cirkel(null, radius1);
 	}
 	
 	@Test (expected = DomainException.class)
 	public void test_cirkel_met_straal_kleiner_dan_nul_gooit_exception(){
-		Cirkel cirkel = new Cirkel(punt1, -1);
+		new Cirkel(punt1, -1);
 	}
 	
 	@Test (expected = DomainException.class)
 	public void test_cirkel_met_straal_gelijk_aan_nul_gooit_exception(){
-		Cirkel cirkel = new Cirkel(punt1, 0);
+		new Cirkel(punt1, 0);
 	}
 	
 	@Test
