@@ -35,29 +35,29 @@ public class CirkelTest {
 	
 	@Test
 	public void test_twee_cirkels_met_zelfde_middelpunt_en_straal_zijn_gelijk(){
-		Cirkel c1 = new Cirkel(radius1, punt1);
-		Cirkel c2 = new Cirkel(radius1, punt1);
+		Cirkel c1 = new Cirkel(punt1,radius1);
+		Cirkel c2 = new Cirkel(punt1,radius1);
 		assertTrue(c1.equals(c2));
 	}
 
 	@Test
 	public void test_twee_cirkels_met_tweede_cirkel_null_zijn_niet_verschillend(){
-		Cirkel c1 = new Cirkel(radius1, punt1);
+		Cirkel c1 = new Cirkel(punt1,radius1);
 		Cirkel c2 = null;
 		assertFalse(c1.equals(c2));
 	}
 
 	@Test
 	public void test_twee_cirkels_met_zelfde_straal_en_verschillend_middelpunt_zijn_verschillend(){
-		Cirkel c1 = new Cirkel(radius1, punt1);
-		Cirkel c2 = new Cirkel(radius1, punt2);
+		Cirkel c1 = new Cirkel(punt1,radius1);
+		Cirkel c2 = new Cirkel(punt2,radius1);
 		assertFalse(c1.equals(c2));
 	}
 
 	@Test
 	public void test_twee_cirkels_met_zelfde_middelpunt_en_verschillende_straal_zijn_verschillend(){
-		Cirkel c1 = new Cirkel(radius1, punt1);
-		Cirkel c2 = new Cirkel(radius2, punt1);
+		Cirkel c1 = new Cirkel(punt1,radius1);
+		Cirkel c2 = new Cirkel(punt1,radius2);
 		assertFalse(c1.equals(c2));
 	}
 	
