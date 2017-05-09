@@ -20,16 +20,19 @@ public class PictionaryUi {
 					running = false;
 					break;
 				case "Rechthoek":
-					nieuweRechthoek();
+					Rechthoek r = nieuweRechthoek();
 					break;
 				case "Driehoek":
-					nieweDriehoek();
+					Driehoek d = nieuweDriehoek();
 					break;
 				case "Lijnstuk":
-					nieuwLijnstuk();
+					LijnStuk l = nieuwLijnstuk();
 					break;
 				case "Punt":
-					nieuwPunt();
+					Punt p = nieuwPunt();
+					break;
+				case "Cirkel":
+					Cirkel c = nieuweCirkel();
 					break;
 				default:
 					break;
@@ -39,12 +42,91 @@ public class PictionaryUi {
 	
 
 
-	private static Punt nieuwPunt() {
+	private Cirkel nieuweCirkel() {
+		Cirkel c;
+		while(true){
+			try{
+				int x1 = askInt("X coordinaat van het middelpunt:");
+				int y1 = askInt("Y coordinaat van het middelpunt:");
+				Punt p1 = new Punt(x1, y1);
+				int radius = askInt("De straal van de cirkel:");
+				c = new Cirkel(p1, radius);
+				break;
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+		}
+		return c;
+	}
+
+	private LijnStuk nieuwLijnstuk() {
+		LijnStuk lijnstuk;
+		while(true){
+			try{
+				int x1 = askInt("X coordinaat van het eerste punt:");
+				int y1 = askInt("Y coordinaat van het eerste punt:");
+				int x2 = askInt("X coordinaat van het tweede punt:");
+				int y2 = askInt("Y coordinaat van het tweede punt:");
+				Punt p1 = new Punt(x1, y1);
+				Punt p2 = new Punt(x2, y2);
+				lijnstuk = new LijnStuk(p1, p2);
+				break;
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+		}
+		return lijnstuk;
+	}
+
+	private Driehoek nieuweDriehoek() {
+		Driehoek driehoek;
+		while(true){
+			try{
+				int x1 = askInt("X coordinaat van het eerste punt:");
+				int y1 = askInt("Y coordinaat van het eerste punt:");
+				int x2 = askInt("X coordinaat van het tweede punt:");
+				int y2 = askInt("Y coordinaat van het tweede punt:");
+				int x3 = askInt("X coordinaat van het derde punt:");
+				int y3 = askInt("Y coordinaat van het derde punt:");
+
+				Punt p1 = new Punt(x1, y1);
+				Punt p2 = new Punt(x2, y2);
+				Punt p3 = new Punt(x3, y3);
+				driehoek = new Driehoek(p1, p2, p3);
+				break;
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+		}
+		return driehoek;
+	}
+
+	private Rechthoek nieuweRechthoek() {
+		Rechthoek rechthoek;
+		while(true){
+			try{
+				int x1 = askInt("X coordinaat van de linkerbovenhoek:");
+				int y1 = askInt("Y coordinaat van de linkerbovenhoek:");
+				Punt p1 = new Punt(x1, y1);
+				
+				int breedte = askInt("Breedte van de rechthoek:");
+				int hoogte = askInt("Hoogte van de rechthoek:");
+				
+				rechthoek = new Rechthoek(p1, breedte, hoogte);
+				break;
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
+		}
+		return rechthoek;
+	}
+
+	private Punt nieuwPunt() {
 		Punt punt;
 		while(true){
 			try{
-				int x = Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het punt:"));
-				int y = Integer.parseInt(JOptionPane.showInputDialog("y coordinaat van het punt:"));
+				int x = askInt("X coordinaat van het punt:");
+				int y = askInt("Y coordinaat van het punt:");
 				punt = new Punt(x, y);
 				JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
 				break;
@@ -53,5 +135,14 @@ public class PictionaryUi {
 			}
 		}
 		return punt;
+	}
+	
+	private int askInt(String message){
+		String txt = JOptionPane.showInputDialog(message);
+		try{
+			return Integer.parseInt(txt);
+		}catch(Exception e){
+			throw new DomainException("Input moet een getal zijn.");
+		}
 	}
 }
