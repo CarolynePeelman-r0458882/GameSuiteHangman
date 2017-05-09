@@ -27,10 +27,16 @@ public class Cirkel {
 		return this.radius;
 	}
 	
+	@Override
 	public boolean equals(Object object){
 		if(object == null) return false;
 		if(!(object instanceof Cirkel)) return false;
 		Cirkel cirkel = (Cirkel) object;
 		return this.radius == cirkel.getRadius() && this.getMiddelpunt() == cirkel.getMiddelpunt();
+	}
+	
+	@Override
+	public String toString(){
+		return "Cirkel[middelpunt: " + this.middelpunt + ", straal: " + Integer.toString(radius) + "]";
 	}
 }
