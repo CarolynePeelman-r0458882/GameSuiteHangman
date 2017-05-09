@@ -15,7 +15,7 @@ public class Cirkel {
 	}
 	
 	private void setRadius(int radius){
-		if(radius <= 0) throw new IllegalArgumentException("Radius moet groter dan 0 zijn.");
+		if(radius <= 0) throw new DomainException("Radius moet groter dan 0 zijn.");
 		this.radius = radius;
 	}
 	
