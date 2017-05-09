@@ -42,18 +42,9 @@ public class Rechthoek extends Vorm {
 			throw new DomainException("hoogte mag niet kleiner dan 0 zijn");
 		}
 		this.hoogte = hoogte;
-	}
-<<<<<<< HEAD
-	this.hoogte = hoogte;
-}
 
-@Override
-public String getOmhullende() {
-	Omhullende omhullende = new Omhullende(getLinkerBovenhoek(), getBreedte(), getHoogte());
-	return omhullende.getOmhullende();
-}
-=======
->>>>>>> 928452fac771c8d62c43d7fa6cfae342026e8946
+	}
+
 
 	@Override
 	public boolean equals(Object o) {
