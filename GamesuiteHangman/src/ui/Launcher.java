@@ -4,8 +4,6 @@ import javax.swing.JOptionPane;
 
 import domain.Speler;
 
-//import domain.Speler;
-
 public class Launcher {
 
 	public static void main(String[] args) {
