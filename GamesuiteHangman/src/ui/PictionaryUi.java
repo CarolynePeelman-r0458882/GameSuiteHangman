@@ -7,7 +7,7 @@ public class PictionaryUi {
 	private Speler speler;
 	
 	public PictionaryUi(Speler speler){
-		this.speler = speler;
+		setSpeler(speler);
 	}
 	
 	public void showMenu(){
@@ -149,5 +149,13 @@ public class PictionaryUi {
 		}catch(Exception e){
 			throw new DomainException("Input moet een getal zijn.");
 		}
+	}
+
+	public Speler getSpeler() {
+		return speler;
+	}
+
+	public void setSpeler(Speler speler) {
+		this.speler = speler;
 	}
 }

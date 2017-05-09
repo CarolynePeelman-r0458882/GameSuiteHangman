@@ -2,7 +2,6 @@ package ui;
 
 import javax.swing.JOptionPane;
 
-import domain.Punt;
 import domain.Speler;
 
 //import domain.Speler;
