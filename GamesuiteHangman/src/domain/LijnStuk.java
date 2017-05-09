@@ -5,11 +5,9 @@ public class LijnStuk extends Vorm {
 	private Punt EindPunt;
 
 	public LijnStuk(Punt startPunt, Punt eindPunt) {
-
 		if (startPunt == null || eindPunt == null) {
 			throw new DomainException("Startpunt en eindpunt mogen niet null zijn.");
 		}
-
 		setStartEnEindPunt(startPunt, eindPunt);
 	}
 

@@ -9,6 +9,7 @@ public class Cirkel extends Vorm {
 		setRadius(radius);
 	}
 
+	
 	public void setMiddelpunt(Punt middelpunt) {
 		if (middelpunt == null)
 			throw new DomainException("Middelpunt mag niet leeg zijn.");

@@ -33,6 +33,12 @@ public class CirkelTest {
 		new Cirkel(punt1, 0);
 	}
 
+	public void test_cirkel_met_straal_1() {
+		Cirkel cirkel = new Cirkel(punt1, 1);
+		assertEquals(cirkel.getRadius(), 1);
+		assertEquals(cirkel.getMiddelpunt(), punt1);
+	}
+
 	@Test
 	public void test_twee_cirkels_met_zelfde_middelpunt_en_straal_zijn_gelijk() {
 		Cirkel c1 = new Cirkel(punt1, radius1);
