@@ -59,7 +59,7 @@ public class Tekening {
 		boolean gelijk = false;
 		if(object instanceof Tekening){
 			Tekening tekening = (Tekening)object;
-			if(this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen()){
+			if(this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen() && this.isZelfdeLijst(tekening.getVormen())){
 				gelijk = true;
 			}
 		}
@@ -69,6 +69,21 @@ public class Tekening {
 	@Override
 	public String toString(){
 		return "Tekening: " + this.getNaam();
+	}
+	
+	public boolean isZelfdeLijst(ArrayList<Vorm> vormen){
+		boolean zelfde = true;
+		for(Vorm v: vormen){
+			if(!(this.vormen.contains(v))){
+				zelfde = false;
+			}
+		}
+		for(Vorm v: this.vormen){
+			if(!(vormen.contains(v))){
+				zelfde = false;
+			}
+		}
+		return zelfde;
 	}
 	
 	public String getNaam() {
@@ -81,6 +96,15 @@ public class Tekening {
 		}
 		this.naam = naam;
 	}
+
+	public ArrayList<Vorm> getVormen() {
+		return vormen;
+	}
+
+	public void setVormen(ArrayList<Vorm> vormen) {
+		this.vormen = vormen;
+	}
+	
 	
 	
 	
