@@ -29,7 +29,7 @@ public class Punt {
 	@Override
 	public boolean equals(Object object) {
 		Punt punt = (Punt) object;
-		if (punt.getX() == 0 || punt.getY() == 0) {
+		if (punt == null) {
 			return false;
 		} else if (punt.getX() == this.getX() && punt.getY() == this.getY()) {
 			return true;
