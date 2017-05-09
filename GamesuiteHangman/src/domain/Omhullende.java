@@ -1,6 +1,6 @@
 package domain;
 
-public class Omhullende {
+public class Omhullende extends Vorm{
 	private Punt linkerBovenhoek;
 	private int breedte;
 	private int hoogte;
@@ -61,7 +61,7 @@ public class Omhullende {
 	}
 
 	@Override
-	public boolean equals(Object object) {
+	public boolean Equals(Object object) {
 		Omhullende omhullende = (Omhullende) object;
 		if (omhullende == null) {
 			return false;
@@ -77,6 +77,7 @@ public class Omhullende {
 		return "Omhullende: " + getLinkerBovenhoek().toString() + " - " + getBreedte() + " - " + getHoogte();
 	}
 
+	@Override
 	public String getOmhullende() {
 		return "Rechthoek: positie: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: "
 				+ getHoogte() + "/nOmhullende: " + toString();
