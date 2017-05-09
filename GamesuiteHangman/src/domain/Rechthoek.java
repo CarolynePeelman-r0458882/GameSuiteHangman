@@ -44,10 +44,6 @@ public class Rechthoek extends Vorm {
 		this.hoogte = hoogte;
 
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 635b2888962609a4800e3d349425b40d44748fb6
 
 	@Override
 	public boolean equals(Object o) {
