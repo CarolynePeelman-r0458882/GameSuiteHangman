@@ -9,6 +9,7 @@ public class Cirkel extends Vorm {
 		setRadius(radius);
 	}
 
+	
 	public void setMiddelpunt(Punt middelpunt) {
 		if (middelpunt == null)
 			throw new DomainException("Middelpunt mag niet leeg zijn.");
@@ -41,7 +42,7 @@ public class Cirkel extends Vorm {
 
 	@Override
 	public String toString() {
-		return "Cirkel[middelpunt: " + this.middelpunt + ", straal: " + Integer.toString(radius) + "]";
+		return "Cirkel: middelpunt: " + getMiddelpunt().toString() + " - straal: " + radius;
 	}
 
 	@Override

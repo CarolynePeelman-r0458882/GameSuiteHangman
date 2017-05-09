@@ -5,11 +5,9 @@ public class LijnStuk extends Vorm {
 	private Punt EindPunt;
 
 	public LijnStuk(Punt startPunt, Punt eindPunt) {
-
 		if (startPunt == null || eindPunt == null) {
 			throw new DomainException("Startpunt en eindpunt mogen niet null zijn.");
 		}
-
 		setStartEnEindPunt(startPunt, eindPunt);
 	}
 
@@ -37,6 +35,10 @@ public class LijnStuk extends Vorm {
 		LijnStuk lijnstuk = (LijnStuk) object;
 		if(lijnstuk.getStartPunt().equals(this.getStartPunt())
 				&& lijnstuk.getEindPunt().equals(this.getEindPunt())) {
+			return true;
+		}
+		if(lijnstuk.getStartPunt().equals(this.getEindPunt())
+				&& lijnstuk.getEindPunt().equals(this.getStartPunt())) {
 			return true;
 		}
 		return false;

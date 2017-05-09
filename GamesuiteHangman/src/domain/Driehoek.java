@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+
 public class Driehoek extends Vorm {
 	private Punt punt1;
 	private Punt punt2;
@@ -36,14 +38,16 @@ public class Driehoek extends Vorm {
 		if (!(object instanceof Driehoek))
 			return false;
 		Driehoek driehoek = (Driehoek) object;
-		return this.getHoekPunt1().equals(driehoek.getHoekPunt1())
-				&& this.getHoekPunt2().equals(driehoek.getHoekPunt2())
-				&& this.getHoekPunt3().equals(driehoek.getHoekPunt3());
+		ArrayList<Punt> punten = new ArrayList<Punt>();
+		punten.add(getHoekPunt1());
+		punten.add(getHoekPunt2());
+		punten.add(getHoekPunt3());
+		return punten.contains(driehoek.getHoekPunt1()) && punten.contains(driehoek.getHoekPunt2()) && punten.contains(driehoek.getHoekPunt3());
 	}
 
 	@Override
 	public String toString() {
-		return "Driehoek[punt1: " + punt1 + ", punt2: " + punt2 + ", punt3: " + punt3 + "]";
+		return "Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString() + " - hoekpunt3: " + punt3.toString();
 	}
 
 	@Override
