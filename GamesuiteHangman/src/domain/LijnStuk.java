@@ -2,7 +2,7 @@ package domain;
 
 import javax.swing.JOptionPane;
 
-public class LijnStuk {
+public class LijnStuk extends Vorm{
 	private Punt StartPunt;
 	private Punt EindPunt;
 

@@ -1,6 +1,6 @@
 package domain;
 
-public class Rechthoek {
+public class Rechthoek extends Vorm {
 private int breedte;
 private int hoogte;
 private Punt linkerBovenhoek;
@@ -10,7 +10,7 @@ public Rechthoek( Punt linkerbovenhoek, int breedte, int hoogte){
 	setLinkerBovenhoek(linkerbovenhoek);
 }
 @Override
-public boolean equals(Object o){
+public boolean Equals(Object o){
 	boolean gelijk = false;
 	if(o instanceof Rechthoek){
 		Rechthoek rechthoek = (Rechthoek)o;
@@ -52,5 +52,6 @@ public void setHoogte(int hoogte) {
 	}
 	this.hoogte = hoogte;
 }
+
 
 }
