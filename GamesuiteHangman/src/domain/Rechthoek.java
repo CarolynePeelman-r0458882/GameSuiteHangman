@@ -59,7 +59,8 @@ public class Rechthoek extends Vorm {
 
 	@Override
 	public String toString() {
-		return "breedte is gelijk aan " + this.getBreedte() + " en hoogte is gelijk aan " + this.getHoogte();
+		return "Rechthoek: positie: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: "
+				+ getHoogte();
 	}
 
 	@Override
