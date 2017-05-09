@@ -40,6 +40,21 @@ public class DriehoekTest {
 	}
 	
 	@Test
+	public void Driehoek_moet_exeption_gooien_als_punt1_gelijk_is_aan_punt_2(){
+		new Driehoek(punt1, punt1, punt3);
+	}
+	
+	@Test
+	public void Driehoek_moet_exeption_gooien_als_punt1_gelijk_is_aan_punt_3(){
+		new Driehoek(punt1, punt2, punt1);
+	}
+	
+	@Test
+	public void Driehoek_moet_exeption_gooien_als_punt2_gelijk_is_aan_punt_3(){
+		new Driehoek(punt1, punt3, punt3);
+	}
+	
+	@Test
 	public void equals_moet_false_teruggeven_als_hoekPunt1_verschillend(){
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		Driehoek andereDriehoek = new Driehoek(verschillendVanPunt1, zelfdeAlsPunt2, zelfdeAlsPunt3);
@@ -73,5 +88,6 @@ public class DriehoekTest {
 		assertTrue(driehoek.getOmhullende().equals("Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString()
 		+ " - hoekpunt3: " + punt3.toString() + " - " + omhullende.toString()));
 	}
+	
 
 }
