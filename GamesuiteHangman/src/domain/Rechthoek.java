@@ -11,24 +11,6 @@ public class Rechthoek extends Vorm {
 		setLinkerBovenhoek(linkerbovenhoek);
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		boolean gelijk = false;
-		if (o instanceof Rechthoek) {
-			Rechthoek rechthoek = (Rechthoek) o;
-			if (this.getBreedte() == rechthoek.getBreedte() && this.getHoogte() == rechthoek.getHoogte()
-					&& this.getLinkerBovenhoek() == rechthoek.getLinkerBovenhoek()) {
-				gelijk = true;
-			}
-		}
-		return gelijk;
-	}
-
-	@Override
-	public String toString() {
-		return "breedte is gelijk aan " + this.getBreedte() + " en hoogte is gelijk aan " + this.getHoogte();
-	}
-
 	public Punt getLinkerBovenhoek() {
 		return linkerBovenhoek;
 	}
@@ -49,7 +31,6 @@ public class Rechthoek extends Vorm {
 			throw new DomainException("breedte mag niet kleiner dan 0 zijn");
 		}
 		this.breedte = breedte;
-
 	}
 
 	public int getHoogte() {
@@ -61,6 +42,24 @@ public class Rechthoek extends Vorm {
 			throw new DomainException("hoogte mag niet kleiner dan 0 zijn");
 		}
 		this.hoogte = hoogte;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		boolean gelijk = false;
+		if (o instanceof Rechthoek) {
+			Rechthoek rechthoek = (Rechthoek) o;
+			if (this.getBreedte() == rechthoek.getBreedte() && this.getHoogte() == rechthoek.getHoogte()
+					&& this.getLinkerBovenhoek() == rechthoek.getLinkerBovenhoek()) {
+				gelijk = true;
+			}
+		}
+		return gelijk;
+	}
+
+	@Override
+	public String toString() {
+		return "breedte is gelijk aan " + this.getBreedte() + " en hoogte is gelijk aan " + this.getHoogte();
 	}
 
 	@Override
