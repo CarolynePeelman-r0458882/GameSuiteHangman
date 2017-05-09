@@ -45,7 +45,6 @@ public class Rechthoek extends Vorm {
 
 	}
 
-
 	@Override
 	public boolean equals(Object o) {
 		boolean gelijk = false;

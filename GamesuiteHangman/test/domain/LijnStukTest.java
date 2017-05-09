@@ -36,6 +36,13 @@ public class LijnStukTest {
 		LijnStuk zelfdeLijnStuk = new LijnStuk(zelfdeAlsPunt1, zelfdeAlsPunt2);
 		assertTrue(lijnStuk.equals(zelfdeLijnStuk));
 	}
+	
+	@Test
+	public void equals_moet_true_als_begin_is_eind_en_omgekeerd(){
+		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
+		LijnStuk zelfdeLijnStuk = new LijnStuk(zelfdeAlsPunt2, zelfdeAlsPunt1);
+		assertTrue(lijnStuk.equals(zelfdeLijnStuk));
+	}
 
 	@Test
 	public void equals_moet_false_teruggeven_als_parameter_null() {
