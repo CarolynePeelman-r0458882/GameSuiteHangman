@@ -45,10 +45,13 @@ public class Tekening {
 	}
 	@Override
 	public boolean equals(Object object){
+		if(object == null){
+			throw new DomainException("parameter is null");
+		}
 		boolean gelijk = false;
 		if(object instanceof Tekening){
 			Tekening tekening = (Tekening)object;
-			if(this.getNaam()==tekening.getNaam()){
+			if(this.getNaam()==tekening.getNaam() && this.getAantalVormen() == tekening.getAantalVormen()){
 				gelijk = true;
 			}
 		}
@@ -65,6 +68,9 @@ public class Tekening {
 	}
 
 	public void setNaam(String naam) {
+		if(naam == null || naam.trim().isEmpty()){
+			throw new DomainException("Naam is niet geldig");
+		}
 		this.naam = naam;
 	}
 	

@@ -1,7 +1,5 @@
 package domain;
 
-import javax.swing.JOptionPane;
-
 public class LijnStuk extends Vorm{
 	private Punt StartPunt;
 	private Punt EindPunt;
@@ -43,6 +41,17 @@ public class LijnStuk extends Vorm{
 	@Override
 	public String toString() {
 		return "Lijn: startpunt: " + getStartPunt().toString() + " - eindpunt: " + getEindPunt().toString();
+	}
+
+	@Override
+	public String getOmhullende() {
+		if (getStartPunt().getY() == getEindPunt().getY()){
+			
+		}
+		int rico = (getEindPunt().getY() - getStartPunt().getY())/(getEindPunt().getX() - getStartPunt().getX());
+		if (rico >= 0)
+		//Omhullende omhullende = new Omhullende();
+		return null;
 	}
 
 }

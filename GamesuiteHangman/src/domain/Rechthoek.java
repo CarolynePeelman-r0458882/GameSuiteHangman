@@ -10,7 +10,7 @@ public Rechthoek( Punt linkerbovenhoek, int breedte, int hoogte){
 	setLinkerBovenhoek(linkerbovenhoek);
 }
 @Override
-public boolean Equals(Object o){
+public boolean equals(Object o){
 	boolean gelijk = false;
 	if(o instanceof Rechthoek){
 		Rechthoek rechthoek = (Rechthoek)o;
