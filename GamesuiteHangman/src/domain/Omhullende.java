@@ -61,7 +61,7 @@ public class Omhullende extends Vorm{
 	}
 
 	@Override
-	public boolean Equals(Object object) {
+	public boolean equals(Object object) {
 		Omhullende omhullende = (Omhullende) object;
 		if (omhullende == null) {
 			return false;
