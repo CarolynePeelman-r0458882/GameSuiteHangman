@@ -27,7 +27,7 @@ public class LijnStuk extends Vorm{
 	}
 
 	@Override
-	public boolean Equals(Object object) {
+	public boolean equals(Object object) {
 		LijnStuk lijnstuk = (LijnStuk) object;
 		if (lijnstuk == null) {
 			return false;
@@ -45,12 +45,12 @@ public class LijnStuk extends Vorm{
 
 	@Override
 	public String getOmhullende() {
-//		if (getStartPunt().getY() == getEindPunt().getY()){
-//			
-//		}
-//		int rico = (getEindPunt().getY() - getStartPunt().getY())/(getEindPunt().getX() - getStartPunt().getX());
-//		if (rico >= 0)
-//		Omhullende omhullende = new Omhullende();
+		if (getStartPunt().getY() == getEindPunt().getY()){
+			
+		}
+		int rico = (getEindPunt().getY() - getStartPunt().getY())/(getEindPunt().getX() - getStartPunt().getX());
+		if (rico >= 0)
+		//Omhullende omhullende = new Omhullende();
 		return null;
 	}
 
