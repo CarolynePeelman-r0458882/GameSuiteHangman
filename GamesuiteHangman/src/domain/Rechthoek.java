@@ -42,7 +42,12 @@ public class Rechthoek extends Vorm {
 			throw new DomainException("hoogte mag niet kleiner dan 0 zijn");
 		}
 		this.hoogte = hoogte;
+
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 635b2888962609a4800e3d349425b40d44748fb6
 
 	@Override
 	public boolean equals(Object o) {
