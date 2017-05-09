@@ -71,6 +71,7 @@ public class Tekening {
 		return "Tekening: " + this.getNaam();
 	}
 	
+	//TODO: Check if vorm is out of image, then ignore (check tests)
 	public boolean isZelfdeLijst(ArrayList<Vorm> vormen){
 		boolean zelfde = true;
 		for(Vorm v: vormen){
