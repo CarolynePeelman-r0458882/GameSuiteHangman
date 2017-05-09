@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Tekening {
 
 	private String naam;
-	private ArrayList<Vorm> vormen;
+	ArrayList<Vorm> vormen;
 	private static final int MIN_X = 0;
 	private static final int MAX_X = 399;
 	private static final int MIN_Y = 0;
@@ -13,10 +13,13 @@ public class Tekening {
 	
 	public Tekening(String naam){
 		setNaam(naam);
-		ArrayList<Vorm> vormen = new ArrayList<>();
+	vormen = new ArrayList<>();
 	}
 
 	public void voegToe(Vorm vorm){
+		if(vorm==null){
+			throw new DomainException("vorm mag niet leeg zijn");
+		}
 		vormen.add(vorm);
 	}
 	
@@ -29,9 +32,11 @@ public class Tekening {
 	}
 	
 	public void verwijder(Vorm vorm){
-		for(Vorm v : vormen){
-			if(v.equals(vorm)){
-				vormen.remove(v);
+		boolean ok = true;
+		for(int i = 0 ; i < this.vormen.size() && ok; i++){
+			if(this.vormen.get(i).equals(vorm)){
+				vormen.remove(i);
+				ok = false;
 			}
 		}
 	}
@@ -43,15 +48,18 @@ public class Tekening {
 		}
 		return bevat;
 	}
+	
+	
+	
 	@Override
 	public boolean equals(Object object){
 		if(object == null){
-			throw new DomainException("parameter is null");
+			return false;
 		}
 		boolean gelijk = false;
 		if(object instanceof Tekening){
 			Tekening tekening = (Tekening)object;
-			if(this.getNaam()==tekening.getNaam() && this.getAantalVormen() == tekening.getAantalVormen()){
+			if(this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen()){
 				gelijk = true;
 			}
 		}

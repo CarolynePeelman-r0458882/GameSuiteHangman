@@ -28,10 +28,14 @@ public class LijnStuk extends Vorm {
 
 	@Override
 	public boolean equals(Object object) {
-		LijnStuk lijnstuk = (LijnStuk) object;
-		if (lijnstuk == null) {
+		if (object == null) {
 			return false;
-		} else if (lijnstuk.getStartPunt().equals(this.getStartPunt())
+		}
+		if(!(object instanceof LijnStuk)){
+			return false;
+		}
+		LijnStuk lijnstuk = (LijnStuk) object;
+		if(lijnstuk.getStartPunt().equals(this.getStartPunt())
 				&& lijnstuk.getEindPunt().equals(this.getEindPunt())) {
 			return true;
 		}
