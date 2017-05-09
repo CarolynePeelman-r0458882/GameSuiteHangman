@@ -56,7 +56,7 @@ public class Driehoek extends Vorm {
 		int hoogte = maxY - minY;
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
 		String driehoekString = "Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString()
-				+ " - hoekpunt3: " + punt3.toString();
+				+ " - hoekpunt3: " + punt3.toString() + " - ";
 		return driehoekString + omhullende.toString();
 
 	}

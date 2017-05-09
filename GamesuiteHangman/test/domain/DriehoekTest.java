@@ -65,5 +65,13 @@ public class DriehoekTest {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		assertFalse(drieHoek.equals(null));
 	}
+	
+	@Test
+	public void getOmhullende_geeft_omhullende_driehoek() {
+		Driehoek driehoek = new Driehoek(punt1, punt2, punt3);
+		Omhullende omhullende = new Omhullende(punt1, 180, 20);
+		assertTrue(driehoek.getOmhullende().equals("Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString()
+		+ " - hoekpunt3: " + punt3.toString() + " - " + omhullende.toString()));
+	}
 
 }
