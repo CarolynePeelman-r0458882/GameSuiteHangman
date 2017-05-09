@@ -62,7 +62,7 @@ public class CirkelTest {
 	}
 
 	@Test
-	public void getOmhullende_geeft_omhullende_rechthoek() {
+	public void getOmhullende_geeft_omhullende_cirkel() {
 		Cirkel cirkel = new Cirkel(punt1, radius1);
 		Omhullende omhullende = new Omhullende(new Punt(punt1.getX() - 2, punt1.getY() - 2), radius1 * 2, radius1 * 2);
 		assertTrue(cirkel.getOmhullende().equals(

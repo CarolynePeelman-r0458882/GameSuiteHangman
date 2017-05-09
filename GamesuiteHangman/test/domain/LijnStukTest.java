@@ -52,7 +52,7 @@ public class LijnStukTest {
 	}
 	
 	@Test
-	public void getOmhullende_geeft_omhullende_rechthoek_omgekeerde_punten() {
+	public void getOmhullende_geeft_omhullende_lijnstuk_omgekeerde_punten() {
 		LijnStuk lijnStuk = new LijnStuk(punt2, punt1);
 		Omhullende omhullende = new Omhullende(punt1, 180, 10);
 		assertTrue(lijnStuk.getOmhullende().equals("Lijn: startpunt: " + punt2.toString() + " - eindpunt: "
