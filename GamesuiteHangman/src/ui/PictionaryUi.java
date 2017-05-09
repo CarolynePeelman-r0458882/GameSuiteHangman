@@ -21,23 +21,23 @@ public class PictionaryUi {
 					break;
 				case "Rechthoek":
 					Rechthoek r = nieuweRechthoek();
-					JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt:(linkerbovenhoek: " + r.getLinkerBovenhoek() + ", breedte: " + r.getBreedte() + ", hoogte: " + r.getHoogte() + ")");
+					JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt: " + r.toString());
 					break;
 				case "Driehoek":
 					Driehoek d = nieuweDriehoek();
-					JOptionPane.showMessageDialog(null, "U heeft een correcte driehoek aangemaakt:(hoekpunt 1: " + d.getHoekPunt1() + ", hoekpunt 2: " + d.getHoekPunt2() + ", hoekpunt 3: " + d.getHoekPunt3() + ")");
+					JOptionPane.showMessageDialog(null, "U heeft een correcte driehoek aangemaakt: " + d.toString());
 					break;
 				case "Lijnstuk":
 					LijnStuk l = nieuwLijnstuk();
-					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt:(startpunt: " + l.getStartPunt() + ", eindpunt: " + l.getEindPunt() + ")");
+					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt: " + l.toString());
 					break;
 				case "Punt":
 					Punt p = nieuwPunt();
-					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt:( " + p.getX() + ", " + p.getY() + ")");
+					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + p.toString());
 					break;
 				case "Cirkel":
 					Cirkel c = nieuweCirkel();
-					JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt:(radius: " + c.getRadius() + ", middelpunt: " + c.getMiddelpunt() + ")");
+					JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + c.toString());
 					break;
 				default:
 					break;

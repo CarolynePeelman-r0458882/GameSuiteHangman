@@ -43,6 +43,17 @@ public class Rechthoek extends Vorm {
 		}
 		this.hoogte = hoogte;
 	}
+<<<<<<< HEAD
+	this.hoogte = hoogte;
+}
+
+@Override
+public String getOmhullende() {
+	Omhullende omhullende = new Omhullende(getLinkerBovenhoek(), getBreedte(), getHoogte());
+	return omhullende.getOmhullende();
+}
+=======
+>>>>>>> 928452fac771c8d62c43d7fa6cfae342026e8946
 
 	@Override
 	public boolean equals(Object o) {
@@ -59,7 +70,8 @@ public class Rechthoek extends Vorm {
 
 	@Override
 	public String toString() {
-		return "breedte is gelijk aan " + this.getBreedte() + " en hoogte is gelijk aan " + this.getHoogte();
+		return "Rechthoek: positie: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: "
+				+ getHoogte();
 	}
 
 	@Override
