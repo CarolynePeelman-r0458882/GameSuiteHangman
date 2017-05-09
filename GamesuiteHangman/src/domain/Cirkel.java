@@ -48,8 +48,8 @@ public class Cirkel extends Vorm {
 	public String getOmhullende() {
 		int minX = middelpunt.getX() - radius;
 		int minY = middelpunt.getY() - radius;
-		int breedte = radius*2;
-		int hoogte = radius*2;
+		int breedte = radius * 2;
+		int hoogte = radius * 2;
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
 		String cirkelString = "Cirkel: middelpunt " + middelpunt.toString() + " - straal: " + radius;
 		return cirkelString + omhullende.toString();
