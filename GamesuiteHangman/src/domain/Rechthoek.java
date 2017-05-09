@@ -52,11 +52,7 @@ public void setHoogte(int hoogte) {
 	}
 	this.hoogte = hoogte;
 }
-@Override
-public String getOmhullende() {
-	Omhullende omhullende = new Omhullende(getLinkerBovenhoek(), getBreedte(), getHoogte());
-	return omhullende.getOmhullende();
-}
+
 
 
 }
