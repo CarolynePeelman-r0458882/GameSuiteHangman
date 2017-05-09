@@ -37,6 +37,10 @@ public class LijnStuk extends Vorm {
 				&& lijnstuk.getEindPunt().equals(this.getEindPunt())) {
 			return true;
 		}
+		if(lijnstuk.getStartPunt().equals(this.getEindPunt())
+				&& lijnstuk.getEindPunt().equals(this.getStartPunt())) {
+			return true;
+		}
 		return false;
 	}
 
