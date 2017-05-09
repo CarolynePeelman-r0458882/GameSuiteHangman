@@ -51,7 +51,7 @@ public class Cirkel extends Vorm {
 		int breedte = radius * 2;
 		int hoogte = radius * 2;
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
-		String cirkelString = "Cirkel: middelpunt " + middelpunt.toString() + " - straal: " + radius;
+		String cirkelString = "Cirkel: middelpunt " + middelpunt.toString() + " - straal: " + radius + " - ";
 		return cirkelString + omhullende.toString();
 	}
 }
