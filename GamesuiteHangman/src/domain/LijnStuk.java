@@ -68,7 +68,7 @@ public class LijnStuk extends Vorm {
 		}
 
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
-		String lijnstukString = "Lijn: startpunt; " + getStartPunt() + " - eindpunt: " + getEindPunt() + " - ";
+		String lijnstukString = "Lijn: startpunt: " + getStartPunt() + " - eindpunt: " + getEindPunt() + " - ";
 		return lijnstukString + omhullende.toString();
 	}
 
