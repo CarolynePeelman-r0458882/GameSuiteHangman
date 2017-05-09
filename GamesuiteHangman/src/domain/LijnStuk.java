@@ -1,6 +1,6 @@
 package domain;
 
-public class LijnStuk extends Vorm{
+public class LijnStuk extends Vorm {
 	private Punt StartPunt;
 	private Punt EindPunt;
 
@@ -45,13 +45,31 @@ public class LijnStuk extends Vorm{
 
 	@Override
 	public String getOmhullende() {
-		if (getStartPunt().getY() == getEindPunt().getY()){
-			
+		if (getStartPunt().getY() == getEindPunt().getY()) {
+			return "Een horizontaal of verticaal lijnstuk heeft geen omhullende vorm.";
 		}
-		int rico = (getEindPunt().getY() - getStartPunt().getY())/(getEindPunt().getX() - getStartPunt().getX());
-		if (rico >= 0)
-		//Omhullende omhullende = new Omhullende();
-		return null;
+		int hoogte;
+		int minY;
+		if (getStartPunt().getY() < getEindPunt().getY()) {
+			minY = getStartPunt().getY();
+			hoogte = getEindPunt().getY() - getStartPunt().getY();
+		} else {
+			minY = getEindPunt().getY();
+			hoogte = getStartPunt().getY() - getEindPunt().getY();
+		}
+		int breedte;
+		int minX;
+		if (getStartPunt().getX() < getEindPunt().getX()) {
+			minX = getStartPunt().getX();
+			breedte = getEindPunt().getX() - getStartPunt().getX();
+		} else {
+			minX = getEindPunt().getX();
+			breedte = getStartPunt().getX() - getEindPunt().getX();
+		}
+
+		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
+		String lijnstukString = "Lijn: startpunt; " + getStartPunt() + " - eindpunt: " + getEindPunt() + " - ";
+		return lijnstukString + omhullende.toString();
 	}
 
 }
