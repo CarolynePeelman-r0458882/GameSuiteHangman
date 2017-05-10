@@ -78,9 +78,9 @@ public class Omhullende extends Vorm{
 	}
 
 	@Override
-	public String getOmhullende() {
-		return "Rechthoek: positie: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: "
-				+ getHoogte() + "/nOmhullende: " + toString();
+	public Omhullende getOmhullende() {
+		Omhullende omhullende = new Omhullende(getLinkerBovenhoek(), getBreedte(), getHoogte());
+		return omhullende;
 	}
 
 }

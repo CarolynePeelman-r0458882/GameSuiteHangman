@@ -42,16 +42,18 @@ public class Driehoek extends Vorm {
 		punten.add(getHoekPunt1());
 		punten.add(getHoekPunt2());
 		punten.add(getHoekPunt3());
-		return punten.contains(driehoek.getHoekPunt1()) && punten.contains(driehoek.getHoekPunt2()) && punten.contains(driehoek.getHoekPunt3());
+		return punten.contains(driehoek.getHoekPunt1()) && punten.contains(driehoek.getHoekPunt2())
+				&& punten.contains(driehoek.getHoekPunt3());
 	}
 
 	@Override
 	public String toString() {
-		return "Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString() + " - hoekpunt3: " + punt3.toString();
+		return "Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString() + " - hoekpunt3: "
+				+ punt3.toString() + " - " + getOmhullende().toString();
 	}
 
 	@Override
-	public String getOmhullende() {
+	public Omhullende getOmhullende() {
 		int minY = minimum(punt1.getY(), punt2.getY(), punt3.getY());
 		int minX = minimum(punt1.getX(), punt2.getX(), punt3.getX());
 		int maxY = maximum(punt1.getY(), punt2.getY(), punt3.getY());
@@ -59,9 +61,7 @@ public class Driehoek extends Vorm {
 		int breedte = maxX - minX;
 		int hoogte = maxY - minY;
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
-		String driehoekString = "Driehoek: hoekpunt1: " + punt1.toString() + " - hoekpunt2: " + punt2.toString()
-				+ " - hoekpunt3: " + punt3.toString() + " - ";
-		return driehoekString + omhullende.toString();
+		return omhullende;
 
 	}
 
