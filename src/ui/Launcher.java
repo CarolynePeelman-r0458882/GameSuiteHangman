@@ -1,15 +1,26 @@
 package ui;
 
+import java.io.FileNotFoundException;
+
 import javax.swing.JOptionPane;
 
+import db.WoordenLezer;
 import domain.Speler;
 
 public class Launcher {
 
 	public static void main(String[] args) {
 		Speler speler = new Speler(vraagNaam());
-		PictionaryUi ui = new PictionaryUi(speler);
-		ui.showMenu();
+		WoordenLezer woordenlezer;
+		try {
+			woordenlezer = new WoordenLezer();
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Woorden.txt not found.");
+			return;
+		}
+		/*PictionaryUi ui = new PictionaryUi(speler);
+		ui.showMenu();¨*/
+		HangManUi ui = new HangManUi(woordenlezer.getWoorden());
 	}
 	
 	public static String vraagNaam(){

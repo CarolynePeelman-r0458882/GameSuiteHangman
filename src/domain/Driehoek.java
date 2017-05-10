@@ -12,6 +12,8 @@ public class Driehoek extends Vorm {
 	}
 
 	public void setHoekpunten(Punt punt1, Punt punt2, Punt punt3) {
+		if(punt1.equals(punt2) || punt1.equals(punt3) || punt2.equals(punt3)) throw new DomainException("Punten mogen niet samenvallen.");
+		
 		if (punt1 == null || punt2 == null || punt3 == null)
 			throw new DomainException("De 3 punten mogen niet leeg zijn.");
 		this.punt1 = punt1;
