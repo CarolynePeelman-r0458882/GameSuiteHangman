@@ -83,6 +83,7 @@ public class Tekening {
 				gelijk = true;
 			}
 		}
+		
 		return gelijk;
 	}
 
