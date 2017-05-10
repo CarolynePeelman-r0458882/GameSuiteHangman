@@ -76,12 +76,9 @@ public class Rechthoek extends Vorm implements Drawable {
 
 	@Override
 	public void teken(Graphics graphics) {
-		Graphics2D graphics2D = (Graphics2D) graphics;
-		graphics2D.setStroke(new BasicStroke(5));
 		
-		Rechthoek rechthoek = new Rechthoek(this.getLinkerBovenhoek(), this.getBreedte(), this.getHoogte());
-		graphics.drawRect(rechthoek.getLinkerBovenhoek().getX(), rechthoek
-				.getLinkerBovenhoek().getY(), rechthoek.getBreedte(), rechthoek
+		graphics.drawRect(this.getLinkerBovenhoek().getX(), this
+				.getLinkerBovenhoek().getY(), this.getBreedte(), this
 				.getHoogte());
 	}
 

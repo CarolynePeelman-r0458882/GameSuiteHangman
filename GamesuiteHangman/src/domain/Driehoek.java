@@ -1,8 +1,11 @@
 package domain;
 
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-public class Driehoek extends Vorm {
+public class Driehoek extends Vorm implements Drawable {
 	private Punt punt1;
 	private Punt punt2;
 	private Punt punt3;
@@ -85,6 +88,16 @@ public class Driehoek extends Vorm {
 			max = waarde3;
 		}
 		return max;
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		
+		int[] xPoints = { this.getHoekPunt1().getX(), this.getHoekPunt2().getX(),
+				this.getHoekPunt3().getX() };
+		int[] yPoints = { this.getHoekPunt1().getY(), this.getHoekPunt2().getY(),
+				this.getHoekPunt3().getY() };
+		graphics.drawPolygon(xPoints, yPoints, 3);
 	}
 
 }

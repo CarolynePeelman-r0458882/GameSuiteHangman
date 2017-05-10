@@ -36,8 +36,12 @@ public class TekenVenster extends Canvas {
 	@Override
 	public void paint(Graphics graphics) {
 		Graphics2D graphics2D = (Graphics2D) graphics;
-		graphics2D.setStroke(new BasicStroke(5));
+		graphics2D.setStroke(new BasicStroke(2));
 
+		this.tekening.teken(graphics2D);
+		
+		//basis tekening
+		/*
 		Cirkel boomkruin = new Cirkel(new Punt(70, 70), 60);
 		LijnStuk boomstam = new LijnStuk(new Punt(70, 130), new Punt(70, 380));
 		Rechthoek gebouw = new Rechthoek(new Punt(100, 200), 200, 180);
@@ -61,5 +65,7 @@ public class TekenVenster extends Canvas {
 		int[] yPoints = { dak.getHoekPunt1().getY(), dak.getHoekPunt2().getY(),
 				dak.getHoekPunt3().getY() };
 		graphics.drawPolygon(xPoints, yPoints, 3);
+	}
+	*/
 	}
 }

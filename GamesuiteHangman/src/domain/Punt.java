@@ -1,6 +1,8 @@
 package domain;
 
-public class Punt {
+import java.awt.Graphics;
+
+public class Punt extends Vorm{
 	private int x;
 	private int y;
 
@@ -40,6 +42,18 @@ public class Punt {
 	@Override
 	public String toString() {
 		return "(" + this.getX() + ", " + this.getY() + ")";
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -47,7 +47,11 @@ public class PictionaryUi {
 		}
 	}
 	
-
+	public void toonTekening(){
+		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
+		view.setVisible(true);
+		view.teken();
+	}
 
 	private void createTekening() {
 		String naam;
@@ -159,4 +163,13 @@ public class PictionaryUi {
 	public void setSpeler(Speler speler) {
 		this.speler = speler;
 	}
+	
+	public Tekening getTekening() {
+		return tekening;
+	}
+
+	public void setTekening(Tekening tekening) {
+		this.tekening = tekening;
+	}
+
 }

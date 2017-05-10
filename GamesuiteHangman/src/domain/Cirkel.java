@@ -1,6 +1,10 @@
 package domain;
 
-public class Cirkel extends Vorm {
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+public class Cirkel extends Vorm implements Drawable{
 	private int radius;
 	private Punt middelpunt;
 
@@ -54,4 +58,12 @@ public class Cirkel extends Vorm {
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
 		return omhullende;
 	}
+	
+	@Override
+	public void teken(Graphics graphics) {
+
+		graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende().getMinY(), this.radius, this.radius);
+		
+	}
+
 }
