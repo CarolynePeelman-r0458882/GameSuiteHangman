@@ -1,8 +1,6 @@
 package domain;
 
-import java.awt.BasicStroke;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Driehoek extends Vorm implements Drawable {
@@ -15,6 +13,8 @@ public class Driehoek extends Vorm implements Drawable {
 	}
 
 	public void setHoekpunten(Punt punt1, Punt punt2, Punt punt3) {
+		if(punt1.equals(punt2) || punt1.equals(punt3) || punt2.equals(punt3)) throw new DomainException("Punten mogen niet samenvallen.");
+		if(((punt2.getX()-punt1.getX())*(punt3.getY()-punt1.getY()))==((punt3.getX()-punt1.getX())*(punt2.getY()-punt1.getY()))) throw new DomainException("");
 		if (punt1 == null || punt2 == null || punt3 == null)
 			throw new DomainException("De 3 punten mogen niet leeg zijn.");
 		this.punt1 = punt1;
@@ -89,7 +89,7 @@ public class Driehoek extends Vorm implements Drawable {
 		}
 		return max;
 	}
-
+	
 	@Override
 	public void teken(Graphics graphics) {
 		
