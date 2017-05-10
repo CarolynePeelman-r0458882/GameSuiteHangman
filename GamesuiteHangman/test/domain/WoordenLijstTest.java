@@ -62,5 +62,25 @@ public class WoordenLijstTest {
 
 		woordenlijstMetGeldigeWoorden.voegToe(woordAlInLijst);
 	}
+	
+	@Test
+	public void getRandom_moet_random_woord_teruggeven(){
+		ArrayList<String> randomWords = new ArrayList<String>();
+		int maxTries = 5000;
+		int loop = 0;
+		boolean result = true;
+		while(randomWords.size() != geldigeWoorden.size()){
+			loop++;
+			if(loop >= maxTries){
+				result = false;
+				break;
+			}
+			String rndWord = woordenlijstMetGeldigeWoorden.getRandomWoord();
+			if(!randomWords.contains(rndWord)){
+				randomWords.add(rndWord);
+			}
+		}
+		assertTrue(result);
+	}
 
 }

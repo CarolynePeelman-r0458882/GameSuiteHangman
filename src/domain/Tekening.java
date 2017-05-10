@@ -82,8 +82,7 @@ public class Tekening implements Drawable{
 		boolean gelijk = false;
 		if (object instanceof Tekening) {
 			Tekening tekening = (Tekening) object;
-			if (this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen()
-					&& this.isZelfdeLijst(tekening.getVormen())) {
+			if (this.getAantalVormen() == tekening.getAantalVormen() && this.isZelfdeLijst(tekening.getVormen())) {
 				gelijk = true;
 			}
 		}

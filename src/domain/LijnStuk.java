@@ -55,12 +55,11 @@ public class LijnStuk extends Vorm implements Drawable {
 
 	@Override
 	public Omhullende getOmhullende() {
-		int hoogte = 0;
-		int minY = 0;
-		int breedte = 0;
-		int minX = 0;
+		int hoogte;
+		int minY;
+		int breedte;
+		int minX;
 		
-		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
 		if (getStartPunt().getY() == getEindPunt().getY() && getStartPunt().getX() == getEindPunt().getX()) {
 			return null;
 		}
@@ -81,7 +80,7 @@ public class LijnStuk extends Vorm implements Drawable {
 			breedte = getStartPunt().getX() - getEindPunt().getX();
 		}
 
-		
+		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
 		return omhullende;
 	}
 

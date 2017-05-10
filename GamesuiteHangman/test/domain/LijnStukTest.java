@@ -54,8 +54,7 @@ public class LijnStukTest {
 	public void getOmhullende_geeft_omhullende_rechthoek() {
 		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
 		Omhullende omhullende = new Omhullende(punt1, 180, 10);
-		assertTrue(lijnStuk.getOmhullende().equals("Lijn: startpunt: " + punt1.toString() + " - eindpunt: "
-				+ punt2.toString() + " - " + omhullende.toString()));
+		assertTrue(lijnStuk.getOmhullende().equals(omhullende));
 	}
 	
 	@Test

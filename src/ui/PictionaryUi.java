@@ -7,16 +7,21 @@ import domain.*;
 
 public class PictionaryUi {
 	private Speler speler;
+<<<<<<< HEAD:GamesuiteHangman/src/ui/PictionaryUi.java
 	Tekening tekening = new Tekening("Tekening");
+=======
+	private Tekening tekening;
+>>>>>>> 6cbb8710d1c3ea35a3f33dd8c27824cf3692d384:src/ui/PictionaryUi.java
 	
 	public PictionaryUi(Speler speler){
 		setSpeler(speler);
 	}
 	
 	public void showMenu(){
+		createTekening();
 		boolean running = true;
 		while(running){
-			Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk", "Punt", "Afsluiten"};
+			Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk", "Afsluiten"};
 			String keuze = (String)JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "Input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 			switch(keuze){
 				case "Afsluiten":
@@ -37,11 +42,14 @@ public class PictionaryUi {
 					tekening.voegToe(l);
 					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt: " + l.toString());
 					break;
+<<<<<<< HEAD:GamesuiteHangman/src/ui/PictionaryUi.java
 				case "Punt":
 					Punt p = nieuwPunt();
 					tekening.voegToe(p);
 					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + p.toString());
 					break;
+=======
+>>>>>>> 6cbb8710d1c3ea35a3f33dd8c27824cf3692d384:src/ui/PictionaryUi.java
 				case "Cirkel":
 					Cirkel c = nieuweCirkel();
 					tekening.voegToe(c);
@@ -60,6 +68,21 @@ public class PictionaryUi {
 	}
 	
 
+
+	private void createTekening() {
+		String naam;
+		while(true){
+			naam = JOptionPane.showInputDialog("Naam van tekening:");
+			try{
+				tekening = new Tekening(naam);
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+				continue;
+			}
+			break;
+		}
+		return;
+	}
 
 	private Cirkel nieuweCirkel() {
 		Cirkel c;
@@ -138,22 +161,6 @@ public class PictionaryUi {
 			}
 		}
 		return rechthoek;
-	}
-
-	private Punt nieuwPunt() {
-		Punt punt;
-		while(true){
-			try{
-				int x = askInt("X coordinaat van het punt:");
-				int y = askInt("Y coordinaat van het punt:");
-				punt = new Punt(x, y);
-				JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
-				break;
-			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			}
-		}
-		return punt;
 	}
 	
 	private int askInt(String message){
