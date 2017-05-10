@@ -5,15 +5,17 @@ import domain.*;
 
 public class PictionaryUi {
 	private Speler speler;
+	private Tekening tekening;
 	
 	public PictionaryUi(Speler speler){
 		setSpeler(speler);
 	}
 	
 	public void showMenu(){
+		createTekening();
 		boolean running = true;
 		while(running){
-			Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk", "Punt", "Afsluiten"};
+			Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk", "Afsluiten"};
 			String keuze = (String)JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "Input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 			switch(keuze){
 				case "Afsluiten":
@@ -21,22 +23,22 @@ public class PictionaryUi {
 					break;
 				case "Rechthoek":
 					Rechthoek r = nieuweRechthoek();
+					tekening.voegToe(r);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt: " + r.toString());
 					break;
 				case "Driehoek":
 					Driehoek d = nieuweDriehoek();
+					tekening.voegToe(d);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte driehoek aangemaakt: " + d.toString());
 					break;
 				case "Lijnstuk":
 					LijnStuk l = nieuwLijnstuk();
+					tekening.voegToe(l);
 					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt: " + l.toString());
-					break;
-				case "Punt":
-					Punt p = nieuwPunt();
-					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + p.toString());
 					break;
 				case "Cirkel":
 					Cirkel c = nieuweCirkel();
+					tekening.voegToe(c);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + c.toString());
 					break;
 				default:
@@ -46,6 +48,21 @@ public class PictionaryUi {
 	}
 	
 
+
+	private void createTekening() {
+		String naam;
+		while(true){
+			naam = JOptionPane.showInputDialog("Naam van tekening:");
+			try{
+				tekening = new Tekening(naam);
+			}catch(Exception e){
+				JOptionPane.showMessageDialog(null, e.getMessage());
+				continue;
+			}
+			break;
+		}
+		return;
+	}
 
 	private Cirkel nieuweCirkel() {
 		Cirkel c;
@@ -124,22 +141,6 @@ public class PictionaryUi {
 			}
 		}
 		return rechthoek;
-	}
-
-	private Punt nieuwPunt() {
-		Punt punt;
-		while(true){
-			try{
-				int x = askInt("X coordinaat van het punt:");
-				int y = askInt("Y coordinaat van het punt:");
-				punt = new Punt(x, y);
-				JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
-				break;
-			}catch(Exception e){
-				JOptionPane.showMessageDialog(null, e.getMessage());
-			}
-		}
-		return punt;
 	}
 	
 	private int askInt(String message){
