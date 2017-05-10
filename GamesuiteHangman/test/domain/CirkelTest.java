@@ -71,8 +71,7 @@ public class CirkelTest {
 	public void getOmhullende_geeft_omhullende_cirkel() {
 		Cirkel cirkel = new Cirkel(punt1, radius1);
 		Omhullende omhullende = new Omhullende(new Punt(punt1.getX() - 2, punt1.getY() - 2), radius1 * 2, radius1 * 2);
-		assertTrue(cirkel.getOmhullende().equals(
-				"Cirkel: middelpunt " + punt1.toString() + " - straal: " + radius1 + " - " + omhullende.toString()));
+		assertTrue(cirkel.getOmhullende().equals(omhullende));
 	}
 
 }
