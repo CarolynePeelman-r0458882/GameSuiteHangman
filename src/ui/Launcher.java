@@ -21,6 +21,10 @@ public class Launcher {
 		/*PictionaryUi ui = new PictionaryUi(speler);
 		ui.showMenu();¨*/
 		HangManUi ui = new HangManUi(woordenlezer.getWoorden());
+
+		PictionaryUi ui2 = new PictionaryUi(speler);
+		ui2.showMenu();
+		ui2.toonTekening();
 	}
 	
 	public static String vraagNaam(){
