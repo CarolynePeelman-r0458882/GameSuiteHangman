@@ -1,6 +1,6 @@
 package domain;
 
-public class Punt {
+public class Punt extends Vorm {
 	private int x;
 	private int y;
 
@@ -40,6 +40,12 @@ public class Punt {
 	@Override
 	public String toString() {
 		return "(" + this.getX() + ", " + this.getY() + ")";
+	}
+
+	@Override
+	public Omhullende getOmhullende() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

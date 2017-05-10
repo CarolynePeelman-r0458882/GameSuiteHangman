@@ -1,10 +1,13 @@
 package ui;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import domain.*;
 
 public class PictionaryUi {
 	private Speler speler;
+	Tekening tekening = new Tekening("Tekening");
 	
 	public PictionaryUi(Speler speler){
 		setSpeler(speler);
@@ -21,28 +24,39 @@ public class PictionaryUi {
 					break;
 				case "Rechthoek":
 					Rechthoek r = nieuweRechthoek();
+					tekening.voegToe(r);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte rechthoek aangemaakt: " + r.toString());
 					break;
 				case "Driehoek":
 					Driehoek d = nieuweDriehoek();
+					tekening.voegToe(d);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte driehoek aangemaakt: " + d.toString());
 					break;
 				case "Lijnstuk":
 					LijnStuk l = nieuwLijnstuk();
+					tekening.voegToe(l);
 					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt: " + l.toString());
 					break;
 				case "Punt":
 					Punt p = nieuwPunt();
+					tekening.voegToe(p);
 					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + p.toString());
 					break;
 				case "Cirkel":
 					Cirkel c = nieuweCirkel();
+					tekening.voegToe(c);
 					JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + c.toString());
 					break;
 				default:
 					break;
 			}
 		}
+	}
+	
+	public void toonTekening(){
+		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
+		view.setVisible(true);
+		view.teken();
 	}
 	
 
@@ -158,4 +172,13 @@ public class PictionaryUi {
 	public void setSpeler(Speler speler) {
 		this.speler = speler;
 	}
+
+	public Tekening getTekening() {
+		return tekening;
+	}
+
+	public void setTekening(Tekening tekening) {
+		this.tekening = tekening;
+	}
+	
 }

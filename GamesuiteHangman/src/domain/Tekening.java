@@ -1,8 +1,11 @@
 package domain;
 
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-public class Tekening {
+public class Tekening implements Drawable{
 
 	private String naam;
 	ArrayList<Vorm> vormen;
@@ -148,6 +151,18 @@ public class Tekening {
 
 	public static int getMaxY() {
 		return MAX_Y;
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		Graphics2D graphics2D = (Graphics2D) graphics;
+		graphics2D.setStroke(new BasicStroke(5));
+		
+		Tekening tekening = new Tekening(this.getNaam());
+		for(Vorm v: tekening.getVormen()){
+			v.teken(graphics2D);
+		}
+		
 	}
 
 }
