@@ -9,7 +9,6 @@ public class Cirkel extends Vorm {
 		setRadius(radius);
 	}
 
-	
 	public void setMiddelpunt(Punt middelpunt) {
 		if (middelpunt == null)
 			throw new DomainException("Middelpunt mag niet leeg zijn.");
@@ -42,17 +41,17 @@ public class Cirkel extends Vorm {
 
 	@Override
 	public String toString() {
-		return "Cirkel: middelpunt: " + getMiddelpunt().toString() + " - straal: " + radius;
+		return "Cirkel: middelpunt: " + getMiddelpunt().toString() + " - straal: " + radius + " - "
+				+ getOmhullende().toString();
 	}
 
 	@Override
-	public String getOmhullende() {
+	public Omhullende getOmhullende() {
 		int minX = middelpunt.getX() - radius;
 		int minY = middelpunt.getY() - radius;
 		int breedte = radius * 2;
 		int hoogte = radius * 2;
 		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
-		String cirkelString = "Cirkel: middelpunt " + middelpunt.toString() + " - straal: " + radius + " - ";
-		return cirkelString + omhullende.toString();
+		return omhullende;
 	}
 }

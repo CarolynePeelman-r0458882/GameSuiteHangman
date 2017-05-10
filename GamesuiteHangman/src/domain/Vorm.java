@@ -1,5 +1,5 @@
 package domain;
 
 public abstract class Vorm {
-	public abstract String getOmhullende();
+	public abstract Omhullende getOmhullende();
 }

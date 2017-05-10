@@ -46,16 +46,21 @@ public class LijnStuk extends Vorm {
 
 	@Override
 	public String toString() {
-		return "Lijn: startpunt: " + getStartPunt().toString() + " - eindpunt: " + getEindPunt().toString();
+		return "Lijn: startpunt: " + getStartPunt().toString() + " - eindpunt: " + getEindPunt().toString() + " - " + getOmhullende().toString() ;
 	}
 
 	@Override
-	public String getOmhullende() {
-		if (getStartPunt().getY() == getEindPunt().getY()) {
-			return "Een horizontaal of verticaal lijnstuk heeft geen omhullende vorm.";
+	public Omhullende getOmhullende() {
+		int hoogte = 0;
+		int minY = 0;
+		int breedte = 0;
+		int minX = 0;
+		
+		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
+		if (getStartPunt().getY() == getEindPunt().getY() && getStartPunt().getX() == getEindPunt().getX()) {
+			return null;
 		}
-		int hoogte;
-		int minY;
+		
 		if (getStartPunt().getY() < getEindPunt().getY()) {
 			minY = getStartPunt().getY();
 			hoogte = getEindPunt().getY() - getStartPunt().getY();
@@ -63,8 +68,7 @@ public class LijnStuk extends Vorm {
 			minY = getEindPunt().getY();
 			hoogte = getStartPunt().getY() - getEindPunt().getY();
 		}
-		int breedte;
-		int minX;
+		
 		if (getStartPunt().getX() < getEindPunt().getX()) {
 			minX = getStartPunt().getX();
 			breedte = getEindPunt().getX() - getStartPunt().getX();
@@ -73,10 +77,8 @@ public class LijnStuk extends Vorm {
 			breedte = getStartPunt().getX() - getEindPunt().getX();
 		}
 
-		Omhullende omhullende = new Omhullende(new Punt(minX, minY), breedte, hoogte);
-		String lijnstukString = "Lijn: startpunt: " + getStartPunt().toString() + " - eindpunt: "
-				+ getEindPunt().toString() + " - ";
-		return lijnstukString + omhullende.toString();
+		
+		return omhullende;
 	}
 
 }
