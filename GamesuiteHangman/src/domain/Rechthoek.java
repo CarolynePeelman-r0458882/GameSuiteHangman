@@ -83,7 +83,6 @@ public class Rechthoek extends Vorm implements Drawable {
 		graphics.drawRect(rechthoek.getLinkerBovenhoek().getX(), rechthoek
 				.getLinkerBovenhoek().getY(), rechthoek.getBreedte(), rechthoek
 				.getHoogte());
-		
 	}
 
 }
