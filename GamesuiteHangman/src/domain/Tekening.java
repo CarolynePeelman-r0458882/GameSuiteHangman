@@ -20,13 +20,10 @@ public class Tekening {
 		if (vorm == null) {
 			throw new DomainException("vorm mag niet leeg zijn");
 		}
-<<<<<<< HEAD
 		if(vormen.contains(vorm)) return;
-=======
 		if (!valtBinnenTekening(vorm)) {
 			throw new DomainException("Vorm moet binnen de tekening vallen.");
 		}
->>>>>>> 5a75bb40d39bb8b8dbe5257c38f6406eb31929de
 		vormen.add(vorm);
 	}
 
@@ -80,16 +77,10 @@ public class Tekening {
 			return false;
 		}
 		boolean gelijk = false;
-<<<<<<< HEAD
-		if(object instanceof Tekening){
-			Tekening tekening = (Tekening)object;
-			if(this.getAantalVormen() == tekening.getAantalVormen() && this.isZelfdeLijst(tekening.getVormen())){
-=======
 		if (object instanceof Tekening) {
 			Tekening tekening = (Tekening) object;
 			if (this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen()
 					&& this.isZelfdeLijst(tekening.getVormen())) {
->>>>>>> 5a75bb40d39bb8b8dbe5257c38f6406eb31929de
 				gelijk = true;
 			}
 		}
@@ -104,30 +95,19 @@ public class Tekening {
 	// TODO: Check if vorm is out of image, then ignore (check tests)
 	public boolean isZelfdeLijst(ArrayList<Vorm> vormen) {
 		boolean zelfde = true;
-<<<<<<< HEAD
 		for(Vorm v: vormen){
 			if(!(this.vormen.contains(v)) && isZichtbaar(v)){
 				zelfde = false;
 			}
 		}
-		for(Vorm v: this.vormen){
-			if(!(vormen.contains(v)) && isZichtbaar(v)){
-=======
 		for (Vorm v : vormen) {
-			if (!(this.vormen.contains(v))) {
-				zelfde = false;
-			}
-		}
-		for (Vorm v : this.vormen) {
-			if (!(vormen.contains(v))) {
->>>>>>> 5a75bb40d39bb8b8dbe5257c38f6406eb31929de
+			if (!(this.vormen.contains(v)) && isZichtbaar(v)) {
 				zelfde = false;
 			}
 		}
 		
 		return zelfde;
 	}
-<<<<<<< HEAD
 	
 	public boolean isZichtbaar(Vorm v){
 		if(v.getOmhullende().getMaxX() < MIN_X) return false;
@@ -137,20 +117,12 @@ public class Tekening {
 		return true;
 	}
 	
-=======
-
->>>>>>> 5a75bb40d39bb8b8dbe5257c38f6406eb31929de
 	public String getNaam() {
 		return naam;
 	}
 
-<<<<<<< HEAD
-	private void setNaam(String naam) {
-		if(naam == null || naam.trim().isEmpty()){
-=======
 	public void setNaam(String naam) {
 		if (naam == null || naam.trim().isEmpty()) {
->>>>>>> 5a75bb40d39bb8b8dbe5257c38f6406eb31929de
 			throw new DomainException("Naam is niet geldig");
 		}
 		this.naam = naam;
@@ -158,10 +130,6 @@ public class Tekening {
 
 	public ArrayList<Vorm> getVormen() {
 		return vormen;
-	}
-
-	private void setVormen(ArrayList<Vorm> vormen) {
-		this.vormen = vormen;
 	}
 	
 
