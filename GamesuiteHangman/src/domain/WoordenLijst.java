@@ -20,6 +20,12 @@ public class WoordenLijst {
 		woorden.add(woord);
 	}
 	
+	public void voegToeArray(String[] woorden){
+		for(String s:woorden){
+			voegToe(s);
+		}
+	}
+	
 	public String getRandomWoord(){
 		Random r = new Random();
 		return woorden.get(r.nextInt(woorden.size()));
