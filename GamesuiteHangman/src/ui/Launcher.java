@@ -10,7 +10,6 @@ public class Launcher {
 		Speler speler = new Speler(vraagNaam());
 		PictionaryUi ui = new PictionaryUi(speler);
 		ui.showMenu();
-		ui.toonTekening();
 	}
 	
 	public static String vraagNaam(){

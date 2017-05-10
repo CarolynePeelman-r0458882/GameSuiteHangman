@@ -1,17 +1,11 @@
 package ui;
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import domain.*;
 
 public class PictionaryUi {
 	private Speler speler;
-<<<<<<< HEAD:GamesuiteHangman/src/ui/PictionaryUi.java
-	Tekening tekening = new Tekening("Tekening");
-=======
 	private Tekening tekening;
->>>>>>> 6cbb8710d1c3ea35a3f33dd8c27824cf3692d384:src/ui/PictionaryUi.java
 	
 	public PictionaryUi(Speler speler){
 		setSpeler(speler);
@@ -42,14 +36,6 @@ public class PictionaryUi {
 					tekening.voegToe(l);
 					JOptionPane.showMessageDialog(null, "U heeft een correct lijnstuk aangemaakt: " + l.toString());
 					break;
-<<<<<<< HEAD:GamesuiteHangman/src/ui/PictionaryUi.java
-				case "Punt":
-					Punt p = nieuwPunt();
-					tekening.voegToe(p);
-					JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + p.toString());
-					break;
-=======
->>>>>>> 6cbb8710d1c3ea35a3f33dd8c27824cf3692d384:src/ui/PictionaryUi.java
 				case "Cirkel":
 					Cirkel c = nieuweCirkel();
 					tekening.voegToe(c);
@@ -59,12 +45,6 @@ public class PictionaryUi {
 					break;
 			}
 		}
-	}
-	
-	public void toonTekening(){
-		GameHoofdScherm view = new GameHoofdScherm(speler.getNaam(), tekening);
-		view.setVisible(true);
-		view.teken();
 	}
 	
 
@@ -179,13 +159,4 @@ public class PictionaryUi {
 	public void setSpeler(Speler speler) {
 		this.speler = speler;
 	}
-
-	public Tekening getTekening() {
-		return tekening;
-	}
-
-	public void setTekening(Tekening tekening) {
-		this.tekening = tekening;
-	}
-	
 }

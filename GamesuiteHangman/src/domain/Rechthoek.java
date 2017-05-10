@@ -1,10 +1,6 @@
 package domain;
 
-import java.awt.BasicStroke;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-
-public class Rechthoek extends Vorm implements Drawable {
+public class Rechthoek extends Vorm {
 	private int breedte;
 	private int hoogte;
 	private Punt linkerBovenhoek;
@@ -72,18 +68,6 @@ public class Rechthoek extends Vorm implements Drawable {
 			throw new DomainException("hoogte mag niet kleiner dan 0 zijn");
 		}
 		this.hoogte = hoogte;
-	}
-
-	@Override
-	public void teken(Graphics graphics) {
-		Graphics2D graphics2D = (Graphics2D) graphics;
-		graphics2D.setStroke(new BasicStroke(5));
-		
-		Rechthoek rechthoek = new Rechthoek(this.getLinkerBovenhoek(), this.getBreedte(), this.getHoogte());
-		graphics.drawRect(rechthoek.getLinkerBovenhoek().getX(), rechthoek
-				.getLinkerBovenhoek().getY(), rechthoek.getBreedte(), rechthoek
-				.getHoogte());
-		
 	}
 
 }
