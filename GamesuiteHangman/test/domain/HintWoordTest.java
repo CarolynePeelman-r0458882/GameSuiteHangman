@@ -49,7 +49,7 @@ public class HintWoordTest {
 	public void raad_moet_true_geven_en_hint_aanpassen_als_letter_in_woord(){
 		HintWoord hint = new HintWoord("test");
 		assertTrue(hint.raad('e'));
-		assertEquals("_ e _ _", hint.toString());
+		assertEquals(" _ e _ _", hint.toString());
 		assertFalse(hint.isGeraden());
 	}
 	
@@ -57,7 +57,7 @@ public class HintWoordTest {
 	public void raad_moet_true_geven_en_hint_aanpassen_als_letter_in_woord_maar_in_verkeerde_case(){
 		HintWoord hint = new HintWoord("test");
 		assertTrue(hint.raad('E'));
-		assertEquals("_ e _ _", hint.toString());
+		assertEquals(" _ e _ _", hint.toString());
 		assertFalse(hint.isGeraden());
 	}
 	
@@ -65,7 +65,7 @@ public class HintWoordTest {
 	public void raad_moet_true_geven_en_hint__op_meerdere_plaatsen_aanpassen_als_letter_meermaals_in_woord(){
 		HintWoord hint = new HintWoord("test");
 		assertTrue(hint.raad('t'));
-		assertEquals("t _ _ t", hint.toString());
+		assertEquals(" t _ _ t", hint.toString());
 		assertFalse(hint.isGeraden());
 	}
 	
