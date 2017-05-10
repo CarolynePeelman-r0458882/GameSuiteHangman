@@ -13,13 +13,14 @@ public class Tekening {
 	
 	public Tekening(String naam){
 		setNaam(naam);
-	vormen = new ArrayList<>();
+		vormen = new ArrayList<>();
 	}
 
 	public void voegToe(Vorm vorm){
 		if(vorm==null){
 			throw new DomainException("vorm mag niet leeg zijn");
 		}
+		if(vormen.contains(vorm)) return;
 		vormen.add(vorm);
 	}
 	
@@ -59,7 +60,7 @@ public class Tekening {
 		boolean gelijk = false;
 		if(object instanceof Tekening){
 			Tekening tekening = (Tekening)object;
-			if(this.getNaam().equals(tekening.getNaam()) && this.getAantalVormen() == tekening.getAantalVormen() && this.isZelfdeLijst(tekening.getVormen())){
+			if(this.getAantalVormen() == tekening.getAantalVormen() && this.isZelfdeLijst(tekening.getVormen())){
 				gelijk = true;
 			}
 		}
@@ -75,23 +76,32 @@ public class Tekening {
 	public boolean isZelfdeLijst(ArrayList<Vorm> vormen){
 		boolean zelfde = true;
 		for(Vorm v: vormen){
-			if(!(this.vormen.contains(v))){
+			if(!(this.vormen.contains(v)) && isZichtbaar(v)){
 				zelfde = false;
 			}
 		}
 		for(Vorm v: this.vormen){
-			if(!(vormen.contains(v))){
+			if(!(vormen.contains(v)) && isZichtbaar(v)){
 				zelfde = false;
 			}
 		}
+		
 		return zelfde;
+	}
+	
+	public boolean isZichtbaar(Vorm v){
+		if(v.getOmhullende().getMaxX() < MIN_X) return false;
+		if(v.getOmhullende().getMinX() > MAX_X) return false;
+		if(v.getOmhullende().getMaxY() < MIN_Y) return false;
+		if(v.getOmhullende().getMinY() > MAX_Y) return false;
+		return true;
 	}
 	
 	public String getNaam() {
 		return naam;
 	}
 
-	public void setNaam(String naam) {
+	private void setNaam(String naam) {
 		if(naam == null || naam.trim().isEmpty()){
 			throw new DomainException("Naam is niet geldig");
 		}
@@ -102,7 +112,7 @@ public class Tekening {
 		return vormen;
 	}
 
-	public void setVormen(ArrayList<Vorm> vormen) {
+	private void setVormen(ArrayList<Vorm> vormen) {
 		this.vormen = vormen;
 	}
 	
